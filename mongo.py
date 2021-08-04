@@ -23,13 +23,13 @@ conn = mongo_connect(MONGO_URI)
 coll = conn[DATABASE][COLLECTION]
 
 # The code below is to insert a single record into the database
-#new_doc = {"first": "douglas", "last": "adams", "dob": "11/03/1952",
-#"hair_color": "grey", "occupation": "writer", "nationality": "british"}
+# new_doc = {"first": "douglas", "last": "adams", "dob": "11/03/1952",
+# "hair_color": "grey", "occupation": "writer", "nationality": "british"}
 
-#coll.insert(new_doc)
+# coll.insert(new_doc)
 
-#The following code is to insert multiple records into the database:
-#new_docs = [{
+# The following code is to insert multiple records into the database:
+# new_docs = [{
 #     "first": "terry",
 #     "last": "pratchett",
 #     "dob": "28/04/1948",
@@ -47,19 +47,21 @@ coll = conn[DATABASE][COLLECTION]
 #     "nationality": "american"
 # }]
 
-#coll.insert_many(new_docs)
+# coll.insert_many(new_docs)
 
-#documents = coll.find()
+# documents = coll.find()
 
-#documents = coll.find({"first": "douglas"})
+# documents = coll.find({"first": "douglas"})
 
-#coll.remove({"first": "douglas"})
-#documents = coll.find()
+# coll.remove({"first": "douglas"})
+# documents = coll.find()
 
-#coll.update_one({"nationality": "american"}, {"$set": {"hair_color": "maroon"}})
-#documents = coll.find({"nationality": "american"})
+# coll.update_one({"nationality": "american"},
+# {"$set": {"hair_color": "maroon"}})
+# documents = coll.find({"nationality": "american"})
 
-coll.update_many({"nationality": "american"}, {"$set": {"hair_color": "maroon"}})
+coll.update_many({"nationality": "american"},
+    {"$set": {"hair_color": "maroon"}})
 documents = coll.find({"nationality": "american"})
 
 for doc in documents:
