@@ -88,7 +88,7 @@ def edit_record():
     if doc:
         update_doc = {}
         print(" ")
-        for k,v in doc_items():
+        for k,v in doc.items():
             if k != "_id":
                 update_doc[k] = input(k.capitalize() + " [" + v + "] > ")
 
